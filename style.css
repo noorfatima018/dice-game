@@ -1,0 +1,190 @@
+
+/* Import custom font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  gap: 2rem;
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* Player Panels */
+.player {
+  padding: 2rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid #00ffe0;
+  box-shadow: 0 0 20px #00ffe080;
+}
+
+.name {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #00ffe0;
+}
+
+.score {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.current {
+  margin-top: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.current-label {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.current-score {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ffe0;
+}
+
+/* Dice */
+.dice {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  filter: drop-shadow(0 0 15px #00ffe090);
+  animation: floatDice 2s infinite ease-in-out;
+}
+
+@keyframes floatDice {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10px);
+  }
+}
+
+/* Buttons */
+.btn {
+  grid-column: span 2;
+  margin: 1rem auto 0;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: #00ffe0;
+  color: #141e30;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffe0a0;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: #141e30;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.97);
+  background: #00ffe0;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .dice {
+    top: auto;
+    bottom: 180px;
+    width: 70px;
+  }
+
+  .btn {
+    margin: 0.8rem auto 0;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+
+.player--winner {
+  background: linear-gradient(135deg, #ffd700, #ffac33);
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 25px 5px rgba(255, 215, 0, 0.8);
+}
+
+.player--winner .name {
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.player--winner .score {
+  color: #000;
+}
+
+.player--winner .current {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.player--winner .current-score {
+  color: #000;
+}
+/*
+ .player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}*/
